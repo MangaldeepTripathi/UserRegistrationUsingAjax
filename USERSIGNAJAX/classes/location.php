@@ -37,25 +37,27 @@ class location extends dbconfig {
    }
 
   // Fetch all states list by country id
-  public static function getStates($countryId) {
-     try {
-       $query = "SELECT id, name FROM states WHERE country_id=".$countryId;
-       $result = dbconfig::run($query);
-       if(!$result) {
-         throw new exception("State not found.");
-       }
-       $res = array();
-       while($resultSet = mysqli_fetch_assoc($result)) {
-        $res[$resultSet['id']] = $resultSet['name'];
-       }
-       $data = array('status'=>'success', 'tp'=>1, 'msg'=>"States fetched successfully.", 'result'=>$res);
-     } catch (Exception $e) {
-       $data = array('status'=>'error', 'tp'=>0, 'msg'=>$e->getMessage());
-     } finally {
-        return $data;
-     }
-   }
+  // public static function getStates($countryId) {
+  //    try {
+  //      $query = "SELECT id, name FROM states WHERE country_id=".$countryId;
+  //      $result = dbconfig::run($query);
+  //      if(!$result) {
+  //        throw new exception("State not found.");
+  //      }
+  //      $res = array();
+  //      while($resultSet = mysqli_fetch_assoc($result)) {
+  //       $res[$resultSet['id']] = $resultSet['name'];
+  //      }
+  //      $data = array('status'=>'success', 'tp'=>1, 'msg'=>"States fetched successfully.", 'result'=>$res);
+  //    } catch (Exception $e) {
+  //      $data = array('status'=>'error', 'tp'=>0, 'msg'=>$e->getMessage());
+  //    } finally {
+  //       return $data;
+  //    }
+  //  }
 
+
+//mangaldeep Tripathi
  // Fetch all cities list by state id
   public static function getCities($stateId) {
      try {
